@@ -6,7 +6,7 @@ namespace Inventory_Checker_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Inventory Manager by Bennett Rosenthal");
+            Console.WriteLine("Inventory Manager by ModernEra");
             Console.WriteLine("Enter a command to get started! type \"help\" for a list of commands :)");
             var command = Console.ReadLine();
             var checker = true;
