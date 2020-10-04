@@ -27,7 +27,6 @@ namespace Inventory_Checker_2
                 {
                     checker = false;
                     Console.WriteLine("Press any key to exit. See you next time!");
-                    Console.WriteLine("yuh");
                 }
 
                 command = Console.ReadLine();
