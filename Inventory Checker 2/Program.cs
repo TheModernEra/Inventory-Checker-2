@@ -1,7 +1,15 @@
 ﻿using System;
+using Newtonsoft.Json;
+using System.IO;
+
 
 namespace Inventory_Checker_2
 {
+    public class Item
+    {
+        public String Itemname { get; set; }
+        public String Itemtype { get; set; }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -29,6 +37,25 @@ namespace Inventory_Checker_2
                     Console.WriteLine("Press any key to exit. See you next time!");
                 }
 
+                if (command.Equals("add"))
+                {
+                    Console.WriteLine("What is the item called?");
+                    var itemname = Console.ReadLine();
+                    Console.WriteLine("What is the item classified as? (appliance, utility, entertainment, etc.)");
+                    var itemtype = Console.ReadLine();
+
+                    var initialJson = File.ReadAllText(@"c:\items.json");
+                    var array = JArray.Parse(initialJson);
+
+
+                    Item example = new Item();
+                    example.Itemname = itemname;
+                    example.Itemtype = itemtype;
+
+                    string objjsonData = JsonConvert.SerializeObject(example);
+                    Console.Write(objjsonData);
+                    System.IO.File.WriteAllText(@"C:\items.json", objjsonData);
+                }
                 command = Console.ReadLine();
             }
         }
